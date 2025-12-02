@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Active Photos</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/header.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: hsl(0 0% 8%);
+            color: hsl(45 20% 92%);
+        }
+        
+        .photos-page {
+            min-height: 100vh;
+            padding: 8rem 1rem 4rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fade-in 0.6s ease-out;
+        }
+
+        .gradient-text {
+            font-size: 3rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, hsl(43 82% 45%), hsl(25 75% 42%));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .subtitle {
+            margin-top: 1rem;
+            color: hsl(45 10% 60%);
+            font-size: 1.2rem;
+        }
+
+        .category-filter {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+
+        .category-badge {
+            padding: 0.5rem 1.5rem;
+            border: 1px solid hsl(0 0% 20%);
+            border-radius: 9999px;
+            background: transparent;
+            color: hsl(45 20% 92%);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .category-badge.active {
+            background: hsl(43 82% 45%);
+            color: hsl(0 0% 8%);
+            box-shadow: 0 0 40px hsl(43 82% 45% / 0.3);
+        }
+
+        .category-badge:hover {
+            border-color: hsl(43 82% 45%);
+            color: hsl(43 82% 45%);
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .photo-card {
+            background: hsl(0 0% 12%);
+            border: 1px solid hsl(0 0% 20%);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .photo-card:hover {
+            border-color: hsl(43 82% 45%);
+            box-shadow: 0 0 40px hsl(43 82% 45% / 0.3);
+        }
+
+        .photo-image {
+            position: relative;
+            height: 16rem;
+            overflow: hidden;
+        }
+
+        .photo-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .photo-card:hover .photo-image img {
+            transform: scale(1.1);
+        }
+
+        .photo-category {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: hsl(43 82% 45%);
+            color: hsl(0 0% 8%);
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.25rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .photo-content {
+            padding: 1.5rem;
+        }
+
+        .photo-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: hsl(45 20% 92%);
+            margin-bottom: 0.75rem;
+        }
+
+        .photo-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+            color: hsl(45 10% 60%);
+        }
+
+        .like-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: none;
+            border: none;
+            color: hsl(45 10% 60%);
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .like-button:hover {
+            color: hsl(43 82% 45%);
+        }
+
+        .heart-icon {
+            font-size: 1.25rem;
+        }
+
+        .like-button.liked .heart-icon {
+            color: hsl(43 82% 45%);
+        }
+        
+        /* Animation */
+        @keyframes fade-in {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @media (max-width: 768px) {
+            .photo-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gradient-text {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
+    <script type="application/json" id="photosData">
+    {
+      "photos": [
+        {
+          "id": 1,
+          "title": "Graffiti Wall - Mar Mikhael",
+          "location": "Mar Mikhael",
+          "date": "2024-11-15",
+          "category": "Street Art",
+          "src": "../image/marmikheal.jpg",
+          "likes": 142
+        },
+        {
+          "id": 2,
+          "title": "Café Culture - Hamra Street",
+          "location": "Hamra",
+          "date": "2024-11-20",
+          "category": "Cafés",
+          "src": "../image/hamra.jpg",
+          "likes": 89
+        },
+        {
+          "id": 3,
+          "title": "Sunset at Corniche",
+          "location": "Corniche",
+          "date": "2024-11-18",
+          "category": "Landmarks",
+          "src": "../image/sunset.jpg",
+          "likes": 234
+        },
+        {
+          "id": 4,
+          "title": "Hidden Alleyway - Gemmayzeh",
+          "location": "Gemmayzeh",
+          "date": "2024-11-22",
+          "category": "Streets",
+          "src": "../image/gemmayze.jpg",
+          "likes": 67
+        },
+        {
+          "id": 5,
+          "title": "Colorful Stairs - Downtown",
+          "location": "Downtown",
+          "date": "2024-11-10",
+          "category": "Architecture",
+          "src": "../image/downtown.jpg",
+          "likes": 156
+        },
+        {
+          "id": 6,
+          "title": "Street Vendor - Verdun",
+          "location": "Verdun",
+          "date": "2024-11-25",
+          "category": "Daily Life",
+          "src": "../image/verdun.jpg",
+          "likes": 98
+        },
+        {
+          "id": 7,
+          "title": "Beirut Skyline at Night",
+          "location": "Beirut Skyline",
+          "date": "2024-11-25",
+          "category": "Landmarks",
+          "src": "../image/skyline.jpg",
+          "likes": 120
+        },
+        {
+          "id": 8,
+          "title": "Sakhret Al Rawshe",
+          "location": "Sakhret Al Rawshe Street",
+          "date": "2024-11-14",
+          "category": "Landmarks",
+          "src": "../image/rawshi.jpg",
+          "likes": 195
+        },
+        {
+          "id": 9,
+          "title": "Beirut Marina at Night",
+          "location": "Beirut Marina",
+          "date": "2024-11-16",
+          "category": "Landmarks",
+          "src": "../image/marina.jpg",
+          "likes": 95
+        }
+      ]
+    }
+    </script>
+</head>
+
+<body>
+
+<!-- Added Header -->
+<header class="main-header">
+    <div class="header-container">
+        <a href="../index.html" class="logo">BEIRUT STREET VIBES</a>
+        
+        <nav>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="interactive.html" class="active">Photos</a></li>
+                <li><a href="map.html">Map</a></li>
+                <li><a href="spotlights.html">Spotlights</a></li>
+                <li><a href="restaurants.html">Restaurants</a></li>
+                <li><a href="contact.html">Share Story</a></li>
+            </ul>
+        </nav>
+        
+        <button class="mobile-menu-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </button>
+    </div>
+</header>
+
+<div class="photos-page">
+  
+  <header class="page-header">
+    <h1 class="gradient-text">Active Photos</h1>
+    <p class="subtitle">Capturing the vibrant essence of Beirut's streets</p>
+  </header>
+
+  <div class="category-filter">
+    <button class="category-badge active" data-category="all">All</button>
+    <button class="category-badge" data-category="Street Art">Street Art</button>
+    <button class="category-badge" data-category="Cafés">Cafés</button>
+    <button class="category-badge" data-category="Landmarks">Landmarks</button>
+    <button class="category-badge" data-category="Streets">Streets</button>
+    <button class="category-badge" data-category="Architecture">Architecture</button>
+    <button class="category-badge" data-category="Daily Life">Daily Life</button>
+  </div>
+
+  <div class="photo-grid"></div>
+
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('.mobile-menu-btn').click(function() {
+            $('.nav-links').toggleClass('active');
+        });
+    });
+
+    const PhotosPage = {
+        photos: [],
+        
+        loadPhotos: function(photosData) {
+            this.photos = photosData;
+            this.renderPhotos();
+        },
+        
+        renderPhotos: function(filterCategory = 'all') {
+            const photoGrid = document.querySelector('.photo-grid');
+            photoGrid.innerHTML = '';
+            
+            const filteredPhotos = filterCategory === 'all' 
+                ? this.photos 
+                : this.photos.filter(photo => photo.category === filterCategory);
+            
+            filteredPhotos.forEach(photo => {
+                const photoCard = document.createElement('div');
+                photoCard.className = 'photo-card';
+                
+                photoCard.innerHTML = `
+                    <div class="photo-image">
+                        <img src="${photo.src}" alt="${photo.title}">
+                        <div class="photo-category">${photo.category}</div>
+                    </div>
+                    <div class="photo-content">
+                        <h3 class="photo-title">${photo.title}</h3>
+                        <div class="photo-meta">
+                            <span class="photo-location">${photo.location}</span>
+                            <span class="photo-date">${photo.date}</span>
+                        </div>
+                        <button class="like-button" data-id="${photo.id}">
+                            <span class="heart-icon">❤</span>
+                            <span class="likes-count">${photo.likes}</span>
+                        </button>
+                    </div>
+                `;
+                
+                // Add like button functionality
+                const likeButton = photoCard.querySelector('.like-button');
+                likeButton.addEventListener('click', () => {
+                    this.toggleLike(likeButton, photo.id);
+                });
+                
+                photoGrid.appendChild(photoCard);
+            });
+        },
+        
+        toggleLike: function(button, photoId) {
+            const likesCount = button.querySelector('.likes-count');
+            let currentLikes = parseInt(likesCount.textContent);
+            
+            if (button.classList.contains('liked')) {
+                currentLikes--;
+                button.classList.remove('liked');
+            } else {
+                currentLikes++;
+                button.classList.add('liked');
+            }
+            
+            likesCount.textContent = currentLikes;
+            
+            const photo = this.photos.find(p => p.id === photoId);
+            if (photo) {
+                photo.likes = currentLikes;
+            }
+        },
+        
+        init: function() {
+            const categoryButtons = document.querySelectorAll('.category-badge');
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    button.classList.add('active');
+                    
+                    const category = button.getAttribute('data-category');
+                    this.renderPhotos(category);
+                });
+            });
+        }
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const json = JSON.parse(document.getElementById('photosData').textContent);
+        PhotosPage.loadPhotos(json.photos);
+        PhotosPage.init();
+    });
+</script>
+<script src="../JS/header.js"></script>
+
+</body>
+</html>

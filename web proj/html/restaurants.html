@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Beirut Street Vibes - Restaurants</title>
+  
+  <!-- Meta tags for SEO -->
+  <meta name="description" content="Discover the best cafés and restaurants in Beirut with authentic reviews.">
+  <meta name="author" content="Hanan Shahade">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Beirut Street Vibes - Restaurants">
+  <meta property="og:description" content="Discover the best cafés and restaurants in Beirut with authentic reviews.">
+  <meta property="og:type" content="website">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/stylee.css">
+  
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+  <style>
+    /* Add padding for fixed header */
+    .wrap {
+        padding-top: 120px;
+        min-height: 100vh;
+    }
+  </style>
+</head>
+<body>
+
+<header class="main-header">
+    <div class="header-container">
+        <a href="../index.html" class="logo">BEIRUT STREET VIBES</a>
+        
+        <!-- Remove the <nav> tag and keep only <ul> -->
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="interactive.html">Photos</a></li>
+            <li><a href="map.html">Map</a></li>
+            <li><a href="spotlights.html">Spotlights</a></li>
+            <li><a href="restaurants.html" class="active">Restaurants</a></li>
+            <li><a href="contact.html">Share Story</a></li>
+        </ul>
+        
+       
+    </div>
+</header>
+
+<div class="wrap">
+  <section id="cafes" class="section active">
+    <h1>Cafés & Restaurants</h1>
+    <p class="lead">Top spots in Beirut for coffee, food and authentic vibes.</p>
+    <input type="text" id="searchInput" placeholder="Search cafés..." class="input-field">
+    <div id="cafes-list" class="locations-list"></div>
+  </section>
+</div>
+
+<button id="scrollTopBtn">↑</button>
+<script src="../JS/scriptt.js"></script>
+<script src="../JS/header.js"></script>
+
+</body>
+</html>

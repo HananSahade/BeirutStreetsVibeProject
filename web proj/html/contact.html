@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Beirut Street Vibes - Contact</title>
+  
+  <!-- Meta tags for SEO -->
+  <meta name="description" content="Share your Beirut street stories, experiences, and recommendations with our community.">
+  <meta name="author" content="Hanan Shahade">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Beirut Street Vibes - Contact">
+  <meta property="og:description" content="Share your Beirut street stories, experiences, and recommendations with our community.">
+  <meta property="og:type" content="website">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/stylee.css">
+  
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+  <style>
+    /* Add padding for fixed header */
+    .wrap {
+        padding-top: 120px;
+        min-height: 100vh;
+    }
+  </style>
+</head>
+<body>
+
+<header class="main-header">
+    <div class="header-container">
+        <a href="../index.html" class="logo">BEIRUT STREET VIBES</a>
+        
+        <nav>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="interactive.html">Photos</a></li>
+                <li><a href="map.html">Map</a></li>
+                <li><a href="spotlights.html">Spotlights</a></li>
+                <li><a href="restaurants.html">Restaurants</a></li>
+                <li><a href="contact.html" class="active">Share Story</a></li>
+            </ul>
+        </nav>
+        
+        <button class="mobile-menu-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </button>
+    </div>
+</header>
+
+<div class="wrap">
+  <section id="contact" class="section active">
+    <h1>Share Your Story</h1>
+    <p class="lead">Tell us about your favourite street, café or Beirut experience.</p>
+    <form id="contactForm" class="hero-card">
+      <label>Your Name:</label>
+      <input type="text" id="name" class="input-field" required>
+      <label>Your Email:</label>
+      <input type="email" id="email" class="input-field" required>
+      <label>Your Story:</label>
+      <textarea id="story" rows="5" class="input-field" required></textarea>
+      <button type="submit" class="btn">Submit Story</button>
+    </form>
+    <p id="message" class="note"></p>
+  </section>
+</div>
+
+<button id="scrollTopBtn">↑</button>
+
+<script src="../JS/scriptt.js"></script>
+<script src="../JS/header.js"></script>
+
+</body>
+</html>

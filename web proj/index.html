@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beirut Street Vibes | Discover the Heart of Beirut's Streets</title>
+    <meta name="description"
+        content="Experience Beirut's vibrant street culture, art, and stories. Explore interactive maps, photo galleries, and authentic café recommendations.">
+    <meta name="author" content="Hanan Shahade">
+
+    <meta property="og:title" content="Beirut Street Vibes | Discover the Heart of Beirut's Streets">
+    <meta property="og:description"
+        content="Experience Beirut's vibrant street culture, art, and stories. Explore interactive maps, photo galleries, and authentic café recommendations.">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/header.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+ 
+<body>
+
+<header class="main-header">
+    <div class="header-container">
+        <a href="index.html" class="logo">BEIRUT STREET VIBES</a>
+        
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="html/interactive.html">Photos</a></li>
+            <li><a href="html/map.html">Map</a></li>
+            <li><a href="html/spotlights.html">Spotlights</a></li>
+            <li><a href="html/restaurants.html">Restaurants</a></li>
+            <li><a href="html/contact.html">Share Story</a></li>
+        </ul>
+        
+        <button class="mobile-menu-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </button>
+    </div>
+</header>
+
+    <section id="hero" class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title animate-fade-in">BEIRUT STREET VIBES</h1>
+            <p class="hero-subtitle">Experience the raw energy, vibrant culture, and authentic stories from Beirut's streets</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary">Explore Streets</button>
+                <button class="btn btn-outline">View Gallery</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="featured" class="featured-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Discover the Pulse</h2>
+                <p class="section-subtitle">Immerse yourself in the authentic energy of Beirut's streets through our curated features</p>
+            </div>
+
+            <div class="features-grid">
+                <a href="html/interactive.html">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                                <circle cx="12" cy="13" r="4"></circle>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Photo Gallery</h3>
+                        <p class="feature-description">Stunning visuals capturing Beirut's iconic streets and vibrant culture</p>
+                    </div>
+                </a>
+                <a href="html/map.html">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Interactive Map</h3>
+                        <p class="feature-description">Explore locations with detailed descriptions and hidden gems</p>
+                    </div>
+                </a>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                            <line x1="6" y1="1" x2="6" y2="4"></line>
+                            <line x1="10" y1="1" x2="10" y2="4"></line>
+                            <line x1="14" y1="1" x2="14" y2="4"></line>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Café Guide</h3>
+                    <p class="feature-description">Discover the best cafés and restaurants with authentic reviews</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Street Stories</h3>
+                    <p class="feature-description">Read interviews and tales from the heart of Beirut's streets</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="street-of-week" class="street-week-section">
+        <div class="container">
+            <div class="week-header">
+                <div class="week-badge">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                    <span>FEATURED THIS WEEK</span>
+                </div>
+                <h2 class="week-title">Hamra Street</h2>
+                <p class="week-subtitle">The beating heart of Beirut's cultural and commercial life, where tradition meets modernity</p>
+            </div>
+
+            <div class="week-card">
+                <div class="week-grid">
+                    <div class="week-info">
+                        <h3 class="week-section-title">About This Street</h3>
+                        <p class="week-text">Hamra Street is one of Beirut's main streets and a vibrant hub for shopping, dining, and culture. Known for its diverse mix of shops, cafés, and bookstores, it embodies the city's dynamic spirit.</p>
+                        <div class="week-details">
+                            <div class="week-detail">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <span>Ras Beirut District</span>
+                            </div>
+                            <div class="week-detail">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                                <span>Best visited: Evening hours</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="week-highlights">
+                        <h3 class="week-section-title orange">Highlights</h3>
+                        <ul class="highlights-list">
+                            <li>Historic bookstores and cafés</li>
+                            <li>Vibrant street art and murals</li>
+                            <li>International cuisine restaurants</li>
+                            <li>Late-night cultural scene</li>
+                            <li>American University of Beirut nearby</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-header">
+                <div class="contact-badge">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                    <span>Contact Us</span>
+                </div>
+                <h2 class="contact-title">Got a Question?</h2>
+            </div>
+
+            <div class="contact-card">
+                <form id="contact-form" class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" id="location" name="location" placeholder="e.g., Hamra Street, Mar Mikhael...">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Any Questions?</label>
+                        <textarea id="message" name="message" rows="6" placeholder="ASK..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-submit">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                        Submit
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3 class="footer-logo">Beirut Street Vibes</h3>
+                    <p class="footer-description">Celebrating the raw energy and authentic culture of Beirut's streets.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Twitter">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Explore</h4>
+                    <ul class="footer-links">
+                        <li><a href="html/interactive.html">Photo Gallery</a></li>
+                        <li><a href="html/map.html">Interactive Map</a></li>
+                        <li><a href="html/spotlights.html">Street of the Week</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Discover</h4>
+                    <ul class="footer-links">
+                        <li><a href="html/restaurants.html">Cafés & Restaurants</a></li>
+                        <li><a href="#">Street Art</a></li>
+                        <li><a href="#">Cultural Events</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="html/contact.html">Contact</a></li>
+                        <li><a href="html/contact.html">Submit Story</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>Beirut, Lebanon</span>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="JS/header.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

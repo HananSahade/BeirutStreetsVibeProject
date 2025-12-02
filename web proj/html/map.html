@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beirut Map</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../css/header.css">
+  
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  
+  <link rel="stylesheet" href="../css/map.css">
+  
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  
+  <style>
+    .main-header {
+        background: hsl(0 0% 8%);
+        border-bottom: 1px solid hsl(0 0% 20%);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+    }
+    
+    .header-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+    }
+    
+    .logo {
+        font-family: 'Bebas Neue', cursive;
+        font-size: 1.8rem;
+        color: hsl(45 20% 92%);
+        text-decoration: none;
+        letter-spacing: 1px;
+    }
+    
+    .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+    }
+    
+    .nav-links a {
+        font-family: 'Inter', sans-serif;
+        color: hsl(45 10% 60%);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+    }
+    
+    .nav-links a:hover,
+    .nav-links a.active {
+        color: hsl(43 82% 45%);
+    }
+    
+    .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: hsl(45 20% 92%);
+        cursor: pointer;
+        padding: 0.5rem;
+    }
+    
+    @media (max-width: 768px) {
+        .mobile-menu-btn {
+            display: block;
+        }
+        
+        .nav-links {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: hsl(0 0% 8%);
+            flex-direction: column;
+            padding: 1rem;
+            gap: 1rem;
+            display: none;
+        }
+        
+        .nav-links.active {
+            display: flex;
+        }
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: 'Inter', sans-serif;
+        background: hsl(0 0% 8%);
+        color: hsl(45 20% 92%);
+    }
+    
+    .map-section .container {
+        padding-top: 8rem; 
+        padding-bottom: 4rem;
+        min-height: 100vh;
+    }
+  </style>
+</head>
+<body>
+  
+  <header class="main-header">
+    <div class="header-container">
+      <a href="../index.html" class="logo">BEIRUT STREET VIBES</a>
+      
+      <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="interactive.html">Photos</a></li>
+          <li><a href="map.html" class="active">Map</a></li>
+          <li><a href="spotlights.html">Spotlights</a></li>
+          <li><a href="restaurants.html">Restaurants</a></li>
+          <li><a href="contact.html">Share Story</a></li>
+      </ul>
+      
+      <button class="mobile-menu-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Map Section -->
+  <section id="map" class="map-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">
+          <span class="gradient-text">Explore Beirut</span>
+        </h2>
+        <p class="section-subtitle">
+          Navigate through the neighborhoods that define our city
+        </p>
+      </div>
+
+      <div class="map-grid">
+        
+        <div class="map-container">
+          <div id="beirut-map" class="beirut-map"></div>
+        </div>
+
+        <div class="locations-list">
+          <div class="location-card" data-location="mar-mikhael">
+            <div class="location-icon-wrapper">
+              <svg class="location-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+            <div class="location-content">
+              <h3 class="location-title">Mar Mikhael</h3>
+              <p class="location-description">Artistic hub with vibrant nightlife</p>
+              <p class="location-coords">33.8938° N, 35.5018° E</p>
+            </div>
+          </div>
+
+          <div class="location-card" data-location="downtown">
+            <div class="location-icon-wrapper">
+              <svg class="location-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+            <div class="location-content">
+              <h3 class="location-title">Downtown Beirut</h3>
+              <p class="location-description">Historic center rebuilt with modern flair</p>
+              <p class="location-coords">33.8958° N, 35.5048° E</p>
+            </div>
+          </div>
+
+          <div class="location-card" data-location="hamra">
+            <div class="location-icon-wrapper">
+              <svg class="location-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+            <div class="location-content">
+              <h3 class="location-title">Hamra</h3>
+              <p class="location-description">Cultural heartbeat of the city</p>
+              <p class="location-coords">33.8958° N, 35.4828° E</p>
+            </div>
+          </div>
+
+          <div class="location-card" data-location="gemmayze">
+            <div class="location-icon-wrapper">
+              <svg class="location-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+            <div class="location-content">
+              <h3 class="location-title">Gemmayze</h3>
+              <p class="location-description">Bohemian quarter with Ottoman architecture</p>
+              <p class="location-coords">33.8948° N, 35.5198° E</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="../JS/map.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      $('.mobile-menu-btn').click(function() {
+        $('.nav-links').toggleClass('active');
+      });
+    });
+  </script>
+
+  <script src="../JS/header.js"></script>
+
+</body>
+</html>

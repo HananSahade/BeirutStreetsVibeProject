@@ -1,0 +1,288 @@
+.map-section {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, hsl(210, 20%, 8%), hsl(210, 15%, 15%));
+  padding: 80px 16px;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, hsl(35, 85%, 65%), hsl(18, 82%, 62%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-subtitle {
+  font-size: 1.25rem;
+  color: hsl(40, 10%, 65%);
+}
+
+.map-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 768px) {
+  .map-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Map Container */
+.map-container {
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: rgba(26, 28, 35, 0.5);
+  backdrop-filter: blur(12px);
+  border: 1px solid hsl(210, 15%, 20%);
+}
+
+/* Beirut Map Styles */
+.beirut-map {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  z-index: 1;
+}
+
+/* Leaflet map customization */
+.leaflet-container {
+  background: hsl(210, 18%, 12%) !important;
+  border-radius: 12px;
+  font-family: inherit;
+}
+
+.leaflet-control-zoom a {
+  background: hsl(210, 18%, 12%) !important;
+  border: 1px solid hsl(210, 15%, 20%) !important;
+  color: hsl(40, 10%, 65%) !important;
+  border-radius: 4px !important;
+}
+
+.leaflet-control-zoom a:hover {
+  background: hsl(210, 15%, 15%) !important;
+  color: hsl(35, 85%, 65%) !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background: hsl(210, 18%, 12%) !important;
+  border: 1px solid hsl(210, 15%, 20%) !important;
+  color: hsl(40, 10%, 65%) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.leaflet-popup-tip {
+  background: hsl(210, 18%, 12%) !important;
+}
+
+.leaflet-marker-icon {
+  filter: hue-rotate(180deg) brightness(1.2);
+}
+
+.leaflet-control-attribution {
+  background: rgba(26, 28, 35, 0.8) !important;
+  color: hsl(40, 10%, 65%) !important;
+}
+
+.leaflet-control-attribution a {
+  color: hsl(35, 85%, 65%) !important;
+}
+
+/* Custom marker styles */
+.custom-div-icon {
+  background: none;
+  border: none;
+}
+
+.custom-marker {
+  color: hsl(35, 85%, 65%);
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-marker:hover {
+  color: hsl(35, 85%, 75%);
+  transform: scale(1.2);
+}
+
+.map-popup h3 {
+  color: hsl(35, 85%, 65%);
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+
+.map-popup p {
+  color: hsl(40, 10%, 65%);
+  margin-bottom: 8px;
+}
+
+.map-popup small {
+  color: rgba(244, 162, 97, 0.8);
+  font-size: 0.75rem;
+}
+
+/* Locations List */
+.locations-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.location-card {
+  cursor: pointer;
+  border-radius: 12px;
+  border: 1px solid hsl(210, 15%, 20%);
+  background: hsl(210, 18%, 12%);
+  padding: 24px;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.6s ease-out forwards;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.location-card:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.location-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.location-card:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.location-card:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.location-card:hover {
+  border-color: hsl(35, 85%, 65%);
+  background: rgba(26, 28, 35, 0.8);
+  transform: translateY(-4px);
+}
+
+.location-icon-wrapper {
+  border-radius: 8px;
+  background: rgba(244, 162, 97, 0.1);
+  padding: 12px;
+  transition: all 0.3s ease;
+}
+
+.location-icon {
+  color: hsl(35, 85%, 65%);
+}
+
+.location-content {
+  flex: 1;
+}
+
+.location-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: hsl(40, 20%, 92%);
+  transition: color 0.3s ease;
+}
+
+.location-card:hover .location-title {
+  color: hsl(35, 85%, 65%);
+}
+
+.location-description {
+  color: hsl(40, 10%, 65%);
+  margin-bottom: 8px;
+}
+
+.location-coords {
+  font-size: 0.875rem;
+  color: rgba(244, 162, 97, 0.8);
+}
+
+.location-card.active {
+  border-color: hsl(35, 85%, 65%);
+  box-shadow: 0 0 20px rgba(244, 162, 97, 0.3);
+  background: rgba(26, 28, 35, 0.9);
+}
+
+/* Animation for active state */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Layer control styling */
+.leaflet-control-layers {
+  background: hsl(210, 18%, 12%) !important;
+  border: 1px solid hsl(210, 15%, 20%) !important;
+  color: hsl(40, 10%, 65%) !important;
+  border-radius: 8px !important;
+}
+
+.leaflet-control-layers-toggle {
+  background-color: hsl(210, 18%, 12%) !important;
+}
+
+.leaflet-control-layers-expanded {
+  background: hsl(210, 18%, 12%) !important;
+}
+
+.leaflet-control-layers label {
+  color: hsl(40, 10%, 65%) !important;
+}
+
+.leaflet-control-layers label:hover {
+  color: hsl(35, 85%, 65%) !important;
+}
+
+.leaflet-control-layers-base label {
+  display: flex;
+  align-items: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .map-container {
+    height: 400px;
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+  }
+}

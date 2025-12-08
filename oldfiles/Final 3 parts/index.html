@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Beirut Street Vibes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <nav>
+    <a href="#" data-target="street" class="nav-link active">Spotlight</a>
+    <a href="#" data-target="cafes" class="nav-link">Cafés</a>
+    <a href="#" data-target="contact" class="nav-link">Share Story</a>
+  </nav>
+  <section id="street" class="section active">
+    <div class="hero-card">
+      <span class="tagline">Street of the Week</span>
+      <h1>Gemmayzeh</h1>
+      <p class="lead">Street of culture, cafés, art, graffiti, live music and Beirut beauty.</p>
+    </div>
+   <div class="hero-photo gemmayzeh"></div>
+  </section>
+  <section id="cafes" class="section">
+    <h1>Cafés & Restaurants</h1>
+    <p class="lead">Top spots in Beirut for coffee, food and authentic vibes.</p>
+    <input type="text" id="searchInput" placeholder="Search cafés..." class="input-field">
+    <div id="cafes-list" class="locations-list"></div>
+  </section>
+  <section id="contact" class="section">
+    <h1>Share Your Story</h1>
+    <p class="lead">Tell us about your favourite street, café or Beirut experience.</p>
+    <form id="contactForm" class="hero-card">
+      <label>Your Name:</label>
+      <input type="text" id="name" class="input-field" required>
+      <label>Your Email:</label>
+      <input type="email" id="email" class="input-field" required>
+      <label>Your Story:</label>
+      <textarea id="story" rows="5" class="input-field" required></textarea>
+      <button type="submit" class="btn">Submit Story</button>
+    </form>
+    <p id="message" class="note"></p>
+  </section>
+
+</div>
+
+<button id="scrollTopBtn">↑</button>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

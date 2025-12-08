@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beirut Map</title>
+
+  <link rel="stylesheet" href="map.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<body>
+  
+<section id="map" class="map-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">
+        <span class="gradient-text">Explore Beirut</span>
+      </h2>
+      <p class="section-subtitle">
+        Navigate through the neighborhoods that define our city
+      </p>
+    </div>
+
+    <div class="map-grid">
+      
+      <div class="map-container">
+        <div class="map-placeholder">
+          <div class="map-placeholder-content">
+            <svg class="map-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <p class="map-placeholder-text">Interactive map coming soon</p>
+            <p class="map-placeholder-subtext">Explore Beirut's iconic streets</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Location Cards -->
+      <div class="locations-list">
+        <div class="location-card" data-location="mar-mikhael">
+          <div class="location-icon-wrapper">
+            <svg class="location-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+          </div>
+          <div class="location-content">
+            <h3 class="location-title">Mar Mikhael</h3>
+            <p class="location-description">Artistic hub with vibrant nightlife</p>
+            <p class="location-coords">33.8938° N, 35.5018° E</p>
+          </div>
+        </div>
+
+        <div class="location-card" data-location="downtown">
+          <div class="location-icon-wrapper">
+            <svg class="location-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+          </div>
+          <div class="location-content">
+            <h3 class="location-title">Downtown Beirut</h3>
+            <p class="location-description">Historic center rebuilt with modern flair</p>
+            <p class="location-coords">33.8958° N, 35.5048° E</p>
+          </div>
+        </div>
+
+        <div class="location-card" data-location="hamra">
+          <div class="location-icon-wrapper">
+            <svg class="location-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+          </div>
+          <div class="location-content">
+            <h3 class="location-title">Hamra</h3>
+            <p class="location-description">Cultural heartbeat of the city</p>
+            <p class="location-coords">33.8958° N, 35.4828° E</p>
+          </div>
+        </div>
+
+        <div class="location-card" data-location="gemmayze">
+          <div class="location-icon-wrapper">
+            <svg class="location-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+              
+            </svg>
+          </div>
+          <div class="location-content">
+            <h3 class="location-title">Gemmayze</h3>
+            <p class="location-description">Bohemian quarter with Ottoman architecture</p>
+            <p class="location-coords">33.8948° N, 35.5198° E</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+</section>
+
+ <script src="map.js"></script>
+
+</body>
+</html>

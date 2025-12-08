@@ -1,0 +1,63 @@
+*{
+    box-sizing: border-box;
+ background-color:#060608;
+}
+
+.section {
+    padding: 40px;
+    text-align: center;
+}
+
+.section h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+h1{
+    color:#ff6a00
+}
+.lead {
+    font-size: 18px;
+    color: rgba(245, 245, 245, 0.575);
+    margin-bottom: 25px;
+}
+
+.input-field {
+    width: 60%;
+    max-width: 400px;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.locations-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.location-card {
+    background: #9e9d9d;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    text-align: left;
+}
+
+.location-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.location-card h3 {
+    margin: 10px 0 5px;
+    font-size: 20px;
+}
+
+.location-card p {
+    font-size: 14px;
+    color: #666;
+}
